@@ -1,0 +1,9 @@
+<h1>Categories</h1>
+  
+<!-- here lies the list of all our categories -->
+<ol>
+  <% @categories.each do |category| %>
+       <li><%= category.name %></li>
+  <% end %>
+
+</ol>

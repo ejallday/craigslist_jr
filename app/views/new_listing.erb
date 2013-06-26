@@ -1,0 +1,20 @@
+<h1>Add a Listing</h1>
+<% if @errors %>
+ <ul>
+  <% @errors.each do |error, message| %>
+    <li><%= error %>:  <%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+<form action="/listing" method="post">
+
+  Category: <select name="listing[category_id]">
+    <% list_categories.each do |category| %>
+    <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select><br>
+  Title: <input type="text" name="listing[title]" value="<%= @listing.title if @listing %>"><br>
+  Description: <textarea name="listing[description]"></textarea><br>
+  Price: <input type="text" name="listing[price]"><br>
+  <input type="submit" value"Create Listing">
+</form>
